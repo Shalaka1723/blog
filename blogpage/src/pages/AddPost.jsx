@@ -8,40 +8,38 @@ import { pink, purple } from "@mui/material/colors";
 import { Link } from "react-router-dom";
 import { TextareaAutosize } from "@mui/base/TextareaAutosize";
 
-
 export const AddPost = () => {
-
   const [title, setTitle] = useState();
   const currentDate = new Date();
   const [author, setAuthor] = useState();
   const [description, setDescription] = useState();
-  const [file, setFile] = useState();
-
-  const getBase64 = (file) => {
-    return new Promise((resolve,reject) => {
-       const reader = new FileReader();
-       reader.onload = () => resolve(reader.result);
-       reader.onerror = error => reject(error);
-       reader.readAsDataURL(file);
-    });
-  }
-  function handleChange(e) {
-      console.log(e.target.files);
-      setFile(URL.createObjectURL(e.target.files[0]));
-    }
-  let handleSubmit= async()=>{
-    let image = await getBase64(file)
-    let postData = {postTitle:title, postImage:image, postDate:currentDate, postAuthor:author, postDescription:description}
-    console.log(postData) 
-  }  
+  const [image, setImage] = useState();
+  const [preview, setPreview] = useState();
 
 
+    const getBase64 = (image) => {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+        reader.readAsDataURL(image);
+      });
+    };
 
-  useEffect(() => {
-      console.log(title,currentDate,author,description)
 
-  }, [title,currentDate,author,description])
-    
+  let handleSubmit = async () => {
+    let postImage = await getBase64(image);
+    let postData = {
+      postTitle: title,
+      postImage: postImage,
+      postDate: currentDate,
+      postAuthor: author,
+      postDescription: description,
+    };
+    localStorage.setItem('postData', JSON.stringify(postData));
+    console.log(postData);
+  };
+
   return (
     <>
       <div>
@@ -61,14 +59,15 @@ export const AddPost = () => {
               <input
                 type="text"
                 value={title}
-                onChange={(e)=>{setTitle(e.target.value)}}
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
                 required
                 maxLength="20"
                 id="title"
                 className="rounded border-2 w-full px-2 py-1 focus:border-gray-600"
               />
             </div>
-
 
             <div className="mt-3">
               <label htmlFor="Description" className="block mb-1 ">
@@ -78,7 +77,9 @@ export const AddPost = () => {
               <TextareaAutosize
                 type="text"
                 value={description}
-                onChange={(e)=>{setDescription(e.target.value)}}
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                }}
                 id=""
                 className="rounded border-2 w-full px-2 py-1 focus:border-gray-600"
               />
@@ -86,8 +87,14 @@ export const AddPost = () => {
             <div className="mt-3">
               <label htmlFor="Image" className="block mb-1 ">
                 <h2>Add Image:</h2>
-                <input type="file"  onChange={handleChange} />
-                <img src={file} />
+                <input
+                  type="file"
+                  onChange={(e) => {
+                    setImage(e.target.files[0]);
+                    setPreview(URL.createObjectURL(e.target.files[0]));
+                  }}
+                />
+                <img src={preview} />
               </label>
             </div>
             <div className="mt-3">
@@ -98,7 +105,9 @@ export const AddPost = () => {
               <input
                 type="text"
                 value={author}
-                onChange={(e)=>{setAuthor(e.target.value)}}
+                onChange={(e) => {
+                  setAuthor(e.target.value);
+                }}
                 required
                 maxLength="20"
                 id=""
@@ -107,7 +116,10 @@ export const AddPost = () => {
             </div>
 
             <div className="mt-5">
-              <button onClick={handleSubmit} className="drop-shadow-lg p-2 bg-[#780187] text-white font-semibold w-full rounded-xl border-pink-700">
+              <button
+                onClick={handleSubmit}
+                className="drop-shadow-lg p-2 bg-[#780187] text-white font-semibold w-full rounded-xl border-pink-700"
+              >
                 Add Post
               </button>
             </div>
