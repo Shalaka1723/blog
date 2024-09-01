@@ -5,7 +5,7 @@ export const Navbar = () => {
     <>
     <header>
 
-      <div className="flex relative h-24 justify-between  items-center shadow-lg bg-yellow-400 px-7 py-9 ">
+      <div className="flex relative h-24 justify-between  items-center shadow-sm px-7 py-9 ">
         <button className="">Subscribe</button>
         <h1 className=" font-bold text-3xl">Large</h1>
 
@@ -21,9 +21,9 @@ export const Navbar = () => {
         </ul>
       </div>
 
-      <hr className="w-screen border-1 py-1 border-gray-300 " />
+      <hr className="w-screen border-1 border-gray-300 " />
       
-      <nav>
+      <nav className="py-2">
 
       <ul className="flex justify-evenly ">
         <li><a href="">
