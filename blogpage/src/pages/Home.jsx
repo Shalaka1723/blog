@@ -49,12 +49,13 @@ console.log(smallPostData)
         </div>
       </section>
 
-      <section className="flex mt-8 gap-5">
+      <section className="flex overflow-x-scroll mt-8 gap-5">
         {
-        smallPostData.map((data)=>{
+        smallPostData.map((data,index)=>{
           return(
 
             <SmallPost
+            key={index}
             category={data.category}
             title={data.title}
             date={data.date}

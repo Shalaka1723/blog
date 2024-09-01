@@ -1,5 +1,6 @@
 import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
+import { Link } from "react-router-dom";
 export const Navbar = () => {
   return (
     <>
@@ -14,9 +15,7 @@ export const Navbar = () => {
             <SearchIcon />
           </li>
           <li>
-            <button className="border border-black rounded-sm py-1 px-2">
-              Sign up{" "}
-            </button>
+            <Link  to={"/Signup"} className="border border-black rounded-sm py-1 px-2">Sign up </Link>
           </li>
         </ul>
       </div>
