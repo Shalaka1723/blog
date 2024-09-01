@@ -3,8 +3,6 @@ import { Navbar } from "../components/Navbar";
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import { Checkbox, IconButton } from "@mui/material";
-import { pink, purple } from "@mui/material/colors";
 import { Link } from "react-router-dom";
 import { TextareaAutosize } from "@mui/base/TextareaAutosize";
 
@@ -12,20 +10,19 @@ export const AddPost = () => {
   const [title, setTitle] = useState();
   const currentDate = new Date();
   const [author, setAuthor] = useState();
+  const [bio, setBio] = useState();
   const [description, setDescription] = useState();
   const [image, setImage] = useState();
   const [preview, setPreview] = useState();
 
-
-    const getBase64 = (image) => {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = (error) => reject(error);
-        reader.readAsDataURL(image);
-      });
-    };
-
+  const getBase64 = (image) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+      reader.readAsDataURL(image);
+    });
+  };
 
   let handleSubmit = async () => {
     let postImage = await getBase64(image);
@@ -35,8 +32,17 @@ export const AddPost = () => {
       postDate: currentDate,
       postAuthor: author,
       postDescription: description,
+      postBio: bio,
     };
-    localStorage.setItem('postData', JSON.stringify(postData));
+
+    if (localStorage.getItem("postData") !== null) {
+      let data = JSON.parse(localStorage.getItem("postData"));
+      data.push(postData);
+      localStorage.setItem("postData", JSON.stringify(data));
+    } else {
+      localStorage.setItem("postData", JSON.stringify([postData]));
+    }
+    console.log(postData);
     console.log(postData);
   };
 
@@ -45,16 +51,19 @@ export const AddPost = () => {
       <div>
         <Navbar />
 
-        <div className="bg-white flex justify-center items-center h-screen">
-          <div className="w-96 p-6 text-white bg-slate-800 rounded-lg h-100 shadow-md ">
-            <div className=" drop-shadow-md text-xl text-center text-[#ae6ac2] font-medium  mb-4 ">
-              Add Post
+        <div className="bg-white flex flex-col justify-center items-center h-auto m-10 w-auto">
+          <div className="w-96 p-6 text-white bg-gray-800 rounded-lg h-100 shadow-md ">
+            <div className=" drop-shadow-md text-xl text-center font-serif text-white font-semibold">
+              LARGE
             </div>
-            <hr />
+            <hr className="my-2" />
+            <div className=" drop-shadow-md text-xl text-center text-[#b9b9b9] font-medium  mb-4 ">
+              Upload Post
+            </div>
             <div className="mt-3">
               <label htmlFor="Title" className="block mb-1 ">
                 {" "}
-                Title{" "}
+                Post Title{" "}
               </label>
               <input
                 type="text"
@@ -70,9 +79,22 @@ export const AddPost = () => {
             </div>
 
             <div className="mt-3">
-              <label htmlFor="Description" className="block mb-1 ">
+              <label htmlFor="bio" className="block mb-1 ">
                 {" "}
                 Description{" "}
+              </label>
+              <TextareaAutosize
+                type="text"
+                value={bio}
+                onChange={(e) => {
+                  setBio(e.target.value);
+                }}
+                id=""
+                className="rounded border-2 w-full px-2 py-1 focus:border-gray-600"
+              />
+              <label htmlFor="Description" className="block mb-1 ">
+                {" "}
+                Detailed Post Text Content {" "}
               </label>
               <TextareaAutosize
                 type="text"
@@ -115,26 +137,22 @@ export const AddPost = () => {
               />
             </div>
 
-            <div className="mt-5">
-              <button
+            <div className="my-6">
+              <Link
+                to={"/home"}
                 onClick={handleSubmit}
-                className="drop-shadow-lg p-2 bg-[#780187] text-white font-semibold w-full rounded-xl border-pink-700"
+                className="drop-shadow-lg p-2 bg-[#39b0ff] text-white w-full rounded-xl border-pink-700"
               >
-                Add Post
-              </button>
+                Upload Post
+              </Link>
             </div>
-            <div className="flex justify-between mt-8 text-sm text-gray-400">
-              <div className="">
-                Already have an account?
-                <button className="pl-1 underline">LOGIN</button>
-              </div>
-            </div>
-            <hr className="mt-2 mb-4 border-1"></hr>
+
+            <hr className="my-2 py-4 "></hr>
 
             <div className=" flex justify-center gap-3 ">
-              <GoogleIcon sx={{ color: "#ae6ac2" }} />
-              <FacebookIcon sx={{ color: "#ae6ac2" }} />
-              <LinkedInIcon sx={{ color: "#ae6ac2" }} />
+              <GoogleIcon sx={{ color: "white" }} />
+              <FacebookIcon sx={{ color: "white" }} />
+              <LinkedInIcon sx={{ color: "white" }} />
             </div>
           </div>
         </div>
