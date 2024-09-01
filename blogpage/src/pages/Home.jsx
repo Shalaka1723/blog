@@ -4,7 +4,27 @@ import { Footer } from "../components/Footer";
 import SmallPost from "../components/SmallPost";
 import ii from "../assets/ii.jpg";
 
+const smallPostData = [
+  {
+    category: "World",
+    title: "Featured Post",
+    date: "12 Nov",
+    bio: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+    image: ii,
+  },
+  {
+    category: "World",
+    title: "Featured Post",
+    date: "12 Nov",
+    bio: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+    image: ii,
+  },
+];
+
 const Home = () => {
+
+console.log(smallPostData)
+
   return (
     <>
       <Navbar />
@@ -30,23 +50,25 @@ const Home = () => {
       </section>
 
       <section className="flex mt-8 gap-5">
-        <SmallPost
-          category="World"
-          title="Featured Post"
-          date="12 Nov"
-          bio="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
-          image={ii}
-        />
-        <SmallPost
-          category="World"
-          title="Featured Post"
-          date="12 Nov"
-          bio="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
-          image={ii}
-        />
+        {
+        smallPostData.map((data)=>{
+          return(
+
+            <SmallPost
+            category={data.category}
+            title={data.title}
+            date={data.date}
+            bio={data.bio}
+           image={data.image}
+           />
+          )
+          // console.log(data.category)
+        })
+
+        }
       </section>
 
-      <section className="flex mt-6 columns-2">
+      <section className="flex mt-6 mx-2 columns-2">
         <div className="w-3/4">
           <h1 className="italic font-serif font-bold text-[3vw]">
             From the Firehouse
@@ -80,10 +102,25 @@ const Home = () => {
                 "June 2013",
                 "May 2013",
                 "April 2013",
-              ].map((archive) => (
-                <li key={archive}>
-                  <a href="#" className="hover:text-blue-500">
-                    {archive}
+              ].map((element) => (
+                <li key={element}>
+                  <a href="#" className="hover:text-blue-800">
+                    {element}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="m-2 p-5">
+            <h1 className="italic font-serif font-bold text-[3vw]">
+              Elsewhere
+            </h1>
+            <ul className="mt-1 font-medium text-[#017BFF]">
+              {["Github", "Twitter", "Facebook"].map((socials) => (
+                <li key={socials}>
+                  <a href="#" className="hover:text-blue-800">
+                    {socials}
                   </a>
                 </li>
               ))}
