@@ -67,7 +67,7 @@ const Home = () => {
     <>
       <Navbar />
 
-      <section className="flex flex-col mt-36 w-screen rounded-md m-1  bg-[#343A40] text-white">
+      <section className="flex flex-col mt-4 w-screen rounded-md m-1  bg-[#343A40] text-white">
         <div className="container text-left  w-1/2 pl-20 py-20 ">
           <h1 className="font-serif  italic font-bold text-6xl">
             Title of a longer featured blog post
@@ -126,6 +126,11 @@ const Home = () => {
               // console.log(data.category)
             })}
           </article>
+          <div className="flex gap-1">
+          <button className="border border-blue-500 text-blue-500 px-2 py-1 rounded-full ">Older</button>
+          <button className="border border-gray-400 text-gray-400 px-2 py-1 rounded-full ">Newer</button>
+
+          </div>
         </div>
 
         <div className="w-1/3">
