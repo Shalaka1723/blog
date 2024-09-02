@@ -3,7 +3,7 @@ import React from "react";
 function Post({ title, author, bio, date, description, image }) {
   return (
     <>
-      <div className=" m-1 flex flex-col w-full mx-2  ">
+      <div className=" m-1 my-3 flex flex-col w-full mx-2 border rounded-sm p-2 bg-gray-50 shadow-sm ">
         <section className="-6">
           <div className="flex justify-between">
             <div>

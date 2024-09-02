@@ -24,35 +24,34 @@ const smallPostData = [
   },
 ];
 
-const postData = [
-  {
-    image: ii,
-    title: "Sample blog post",
-    date: "January 1, 2014",
-    author: "Mark",
-    bio: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    description:
-      "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-  },
-  {
-    image: ii,
-    title: "Second blog post",
-    date: "February 1, 2014",
-    author: "Amy",
-    bio: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    description:
-      "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-  },
-  {
-    image: ii,
-    title: "Third blog post",
-    date: "June 1, 2014",
-    author: "Kori",
-    bio: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-    description:
-      "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-  },
-];
+// DUMMY DATA FOR MAIN POSTS
+// const postData = [
+//   {
+//     image: ii,
+//     title: "Sample blog post",
+//     date: "January 1, 2014",
+//     author: "Mark",
+//     bio: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+//     description:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+//   },
+//   {
+//     image: ii,
+//     title: "Second blog post",
+//     date: "February 1, 2014",
+//     author: "Amy",
+//     bio: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+//     description:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+//   },
+//   {
+//     image: ii,
+//     title: "Third blog post",
+//     date: "June 1, 2014",
+//     author: "Kori",
+//     bio: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+//     description:"Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+//   },
+// ];
+// console.log(postData)
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -63,6 +62,7 @@ const Home = () => {
 
   return (
     <>
+    <div className='px-5'>
       <Navbar />
 
       <section className="flex flex-col mt-4 w-full overflow-x-hidden rounded-md m-1 bg-[#343A40] text-white">
@@ -124,7 +124,8 @@ const Home = () => {
             })
             )
             : null}
-          </article>;
+          </article>
+
           <div className="flex gap-1">
             <button className="border border-blue-500 text-blue-500 px-2 py-1 rounded-full">
               Older
@@ -189,6 +190,7 @@ const Home = () => {
       </section>
 
       <Footer />
+      </div>
     </>
   );
 };

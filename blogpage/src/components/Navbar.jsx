@@ -63,7 +63,7 @@ export const Navbar = () => {
               "Travel",
             ].map((element) => (
               <li className="" key={element}>
-                <a href="#" className="hover:text-blue-300 hover:bg-gray-100 block md:inline">
+                <a href="#" className="hover:text-white hover:bg-gray-600 rounded-full px-2 py-1 block md:inline">
                   {element}
                 </a>
               </li>
