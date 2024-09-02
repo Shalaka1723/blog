@@ -12,7 +12,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <header className="flex flex-col top-0 left-0 w-screen bg-white">
+      <header className="flex flex-col top-0 left-0 w-fit bg-white">
         <div className="flex relative h-24 justify-between items-center shadow-sm px-7 py-9">
           <button className="hidden md:block">Subscribe</button>
           <h1 className="font-serif font-extrabold text-4xl">Large</h1>

@@ -7,6 +7,8 @@ import denmark from "../assets/denmark.jpg";
 import ii from "../assets/ii.jpg";
 import Post from "../components/Post";
 
+
+
 const smallPostData = [
   {
     category: "World",
@@ -24,7 +26,23 @@ const smallPostData = [
   },
 ];
 
+const archiveData = [
+  "March 2014",
+  "February 2014",
+  "January 2014",
+  "December 2013",
+  "November 2013",
+  "October 2013",
+  "September 2013",
+  "August 2013",
+  "July 2013",
+  "June 2013",
+  "May 2013",
+  "April 2013",
+]
+
 // DUMMY DATA FOR MAIN POSTS
+
 // const postData = [
 //   {
 //     image: ii,
@@ -53,7 +71,7 @@ const smallPostData = [
 // ];
 // console.log(postData)
 
-const Home = () => {
+const Home = () => {                                            //fetching post data from local storage
   const [data, setData] = useState([]);
   useEffect(() => {
     let data = JSON.parse(localStorage.getItem("postData"));
@@ -62,7 +80,7 @@ const Home = () => {
 
   return (
     <>
-    <div className='px-5'>
+    <div className='px-'>
       <Navbar />
 
       <section className="flex flex-col mt-4 w-full overflow-x-hidden rounded-md m-1 bg-[#343A40] text-white">
@@ -149,20 +167,7 @@ const Home = () => {
           <div className="m-2 p-5">
             <h1 className="italic font-serif font-bold text-4xl">Archives</h1>
             <ul className="mt-1 font-medium text-[#017BFF]">
-              {[
-                "March 2014",
-                "February 2014",
-                "January 2014",
-                "December 2013",
-                "November 2013",
-                "October 2013",
-                "September 2013",
-                "August 2013",
-                "July 2013",
-                "June 2013",
-                "May 2013",
-                "April 2013",
-              ].map((element) => (
+              {archiveData.map((element) => (
                 <li key={element}>
                   <a href="#" className="hover:text-blue-800">
                     {element}

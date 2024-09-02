@@ -27,6 +27,10 @@ export const AddPost = () => {
   };
 
   let handleSubmit = async () => {
+    if (!title || !author || !description) {
+      alert("Please fill in all required fields.");
+      return;
+    }
     let postImage = image ? await getBase64(image) : null;
     let postData = {
       postTitle: title,
@@ -108,7 +112,7 @@ export const AddPost = () => {
             <div className="mt-3">
               <label htmlFor="Image" className="block mb-1">
                 <h2>Add Image:</h2>
-                <input
+                <input                                            //image filed with only image  
                   type="file"
                   accept="image/*"
                   onChange={(e) => {
