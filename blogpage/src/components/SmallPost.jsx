@@ -3,7 +3,7 @@ import React from "react";
 const SmallPost = ({ category, title, bio, date, image }) => {
   return (
     <>
-      <div className="border border-gray-300 m-1 shadow-md flex columns-2 rounded-sm h-80 w-1/2">
+      <div className="border border-gray-300 m-1 shadow-md flex columns-2 rounded-md h-auto  md:w-full">
         <section className="p-6">
           <h1 className="font-bold text-md">{category}</h1>
           <h1 className="font-semibold font-serif text-4xl">{title}</h1>

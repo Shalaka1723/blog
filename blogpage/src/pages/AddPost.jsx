@@ -74,7 +74,7 @@ export const AddPost = () => {
                 required
                 maxLength="20"
                 id="title"
-                className="rounded border-2 w-full px-2 py-1 focus:border-gray-600"
+                className="rounded text-black border-2 w-full px-2 py-1 focus:border-gray-600"
               />
             </div>
 
@@ -90,7 +90,7 @@ export const AddPost = () => {
                   setBio(e.target.value);
                 }}
                 id=""
-                className="rounded border-2 w-full px-2 py-1 focus:border-gray-600"
+                className="rounded border-2 text-black w-full px-2 py-1 focus:border-gray-600"
               />
               <label htmlFor="Description" className="block mb-1 ">
                 {" "}
@@ -103,7 +103,7 @@ export const AddPost = () => {
                   setDescription(e.target.value);
                 }}
                 id=""
-                className="rounded border-2 w-full px-2 py-1 focus:border-gray-600"
+                className="rounded border-2 text-black w-full px-2 py-1 focus:border-gray-600"
               />
             </div>
             <div className="mt-3">
@@ -133,7 +133,7 @@ export const AddPost = () => {
                 required
                 maxLength="20"
                 id=""
-                className="rounded border-2 w-full px-2 py-1 focus:border-gray-600"
+                className="rounded border-2 text-black w-full px-2 py-1 focus:border-gray-600"
               />
             </div>
 
@@ -141,13 +141,19 @@ export const AddPost = () => {
               <Link
                 to={"/home"}
                 onClick={handleSubmit}
-                className="drop-shadow-lg p-2 bg-[#39b0ff] text-white w-full rounded-xl border-pink-700"
+                className="drop-shadow-lg p-2 bg-[#39b0ff] text-white w-fit rounded-xl border-pink-700"
               >
                 Upload Post
               </Link>
             </div>
 
-            <hr className="my-2 py-4 "></hr>
+            <hr className="my-2 py-2 "></hr>
+            <div className="font-light pb-3 text-center">
+                Go back to
+                <Link to={"/Home"} className="pl-1 hover:text-blue-300 underline">
+                  Blog Homepage
+                </Link>
+              </div>
 
             <div className=" flex justify-center gap-3 ">
               <GoogleIcon sx={{ color: "white" }} />
