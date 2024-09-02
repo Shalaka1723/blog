@@ -12,7 +12,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <header className="flex flex-col top-0 left-0 w-fit bg-white">
+      <header className="flex flex-col top-0 left-0 w-full bg-white">
         <div className="flex relative h-24 justify-between items-center shadow-sm px-7 py-9">
           <button className="hidden md:block">Subscribe</button>
           <h1 className="font-serif font-extrabold text-4xl">Large</h1>
@@ -44,7 +44,7 @@ export const Navbar = () => {
           </ul>
         </div>
 
-        <hr className="w-screen border-1 border-gray-300" />
+        <hr className="w-fit border-1 border-gray-300" />
 
         <nav className={`py-2 ${isOpen ? "block" : "hidden"} md:block`}>
           <ul className="flex flex-col md:flex-row items-center justify-evenly">

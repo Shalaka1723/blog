@@ -80,10 +80,10 @@ const Home = () => {                                            //fetching post 
 
   return (
     <>
-    <div className='px-'>
+    <div className=' '>
       <Navbar />
 
-      <section className="flex flex-col mt-4 w-full overflow-x-hidden rounded-md m-1 bg-[#343A40] text-white">
+      <section className="flex flex-col mt-3 justify-self-center mx-auto w-[99%] overflow-x-hidden rounded-md bg-[#343A40] text-white">
         <div className="container w-2/3 text-left px-4 md:px-20 py-10 md:py-20">
           <h1 className="font-serif italic font-bold text-3xl md:text-6xl">
             Title of a longer featured blog post
