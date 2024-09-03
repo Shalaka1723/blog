@@ -25,6 +25,7 @@ export const AddPost = () => {
       reader.readAsDataURL(image);
     });
   };
+  
 
   let handleSubmit = async () => {
     if (!title || !author || !description) {
@@ -55,7 +56,12 @@ export const AddPost = () => {
   return (
     <>
       <div>
+
         <Navbar />
+
+
+
+        {/* Form to upload posts to the Homepage section */}
 
         <div className="bg-white flex flex-col justify-center items-center h-auto m-4 sm:m-10 w-auto">
           <form className="w-full sm:w-2/5 p-6 sm:px-10 text-white bg-gray-800 rounded-lg h-100 shadow-md ">
@@ -112,7 +118,7 @@ export const AddPost = () => {
             <div className="mt-3">
               <label htmlFor="Image" className="block mb-1">
                 <h2>Add Image:</h2>
-                <input                                            //image filed with only image  
+                <input                   //image field only to accept image files  
                   type="file"
                   accept="image/*"
                   onChange={(e) => {

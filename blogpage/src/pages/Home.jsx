@@ -81,8 +81,10 @@ const Home = () => {                                            //fetching post 
   return (
     <>
     <div className=' '>
+
       <Navbar />
 
+        {/* Main Featured Post */}
       <section className="flex flex-col mt-3 justify-self-center mx-auto w-[99%] overflow-x-hidden rounded-md bg-[#343A40] text-white">
         <div className="container w-2/3 text-left px-4 md:px-20 py-10 md:py-20">
           <h1 className="font-serif italic font-bold text-3xl md:text-6xl">
@@ -103,6 +105,7 @@ const Home = () => {                                            //fetching post 
         </div>
       </section>
 
+        {/* Small Featured Posts */}
       <section className="md:flex mt-8 gap-5 px-4 overflow-hidden">
         {smallPostData.map((data, index) => {
           return (
@@ -118,6 +121,7 @@ const Home = () => {                                            //fetching post 
         })}
       </section>
 
+        {/* Uploaded posts displayed under the firehouse section */}
       <section className="flex flex-col md:flex-row mt-6 mx-2 gap-8 overflow-hidden">
         <div className="w-full md:w-3/4">
           <h1 className="italic font-serif font-bold text-4xl">
@@ -144,15 +148,17 @@ const Home = () => {                                            //fetching post 
             : null}
           </article>
 
-          <div className="flex gap-1">
-            <button className="border border-blue-500 text-blue-500 px-2 py-1 rounded-full">
+          <div className="flex gap-1 my-4">
+            <button className="border border-blue-500 text-blue-500 hover:bg-blue-200 px-2 py-1 rounded-full">
               Older
             </button>
-            <button className="border border-gray-400 text-gray-400 px-2 py-1 rounded-full">
+            <button className="border border-gray-400 text-gray-400 hover:bg-gray-200 px-2 py-1 rounded-full">
               Newer
             </button>
           </div>
         </div>
+
+        {/* About,Archives & Elsewhere section */}
 
         <div className="w-full md:w-1/3">
           <div className="bg-[#F8F9FA] rounded-md m-2 p-5">
