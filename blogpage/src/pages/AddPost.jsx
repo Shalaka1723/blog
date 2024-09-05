@@ -118,10 +118,11 @@ export const AddPost = () => {
             <div className="mt-3">
               <label htmlFor="Image" className="block mb-1">
                 <h2>Add Image:</h2>
-                <input                   //image field only to accept image files  
+                <input                   
                   type="file"
-                  accept="image/*"
+                  accept="image/*"     //image field only to accept image files  
                   onChange={(e) => {
+                    console.log(e)
                     setImage(e.target.files[0]);
                     setPreview(URL.createObjectURL(e.target.files[0]));
                   }}
@@ -160,7 +161,7 @@ export const AddPost = () => {
             <hr className="my-2 py-2" />
             <div className="font-light pb-3 text-center">
               Go back to
-              <Link to="/Home" className="pl-1 hover:text-blue-300 underline">
+              <Link to="/" className="pl-1 hover:text-blue-300 underline">
                 Blog Homepage
               </Link>
             </div>

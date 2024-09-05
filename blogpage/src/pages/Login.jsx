@@ -64,7 +64,7 @@ export default function Login() {
 
               <div className="">
                 Go back to
-                <Link to={"/Home"} className="pl-1  underline">
+                <Link to={"/"} className="pl-1  underline">
                   Blog Homepage
                 </Link>
               </div>

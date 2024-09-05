@@ -8,7 +8,6 @@ import ii from "../assets/ii.jpg";
 import Post from "../components/Post";
 
 
-
 const smallPostData = [
   {
     category: "World",
