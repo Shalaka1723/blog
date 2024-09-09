@@ -49,17 +49,13 @@ export const AddPost = () => {
     } else {
       localStorage.setItem("postData", JSON.stringify([postData]));
     }
-    console.log(postData);
     navigate("/Home");
   };
 
   return (
     <>
       <div>
-
         <Navbar />
-
-
 
         {/* Form to upload posts to the Homepage section */}
 
